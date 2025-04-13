@@ -17,7 +17,7 @@ int fightMonster(){
     int playerHP =10;
     int monsterHP = 8;
 
-    cout<<"Um monstro aparece! Prepaare-se appr,para lutar\n";
+    cout<<"Um monstro aparece! Prepare-se para lutar.\n";
 
     while (playerHP > 0 && monsterHP > 0)
     {
@@ -27,12 +27,12 @@ int fightMonster(){
         monsterHP -=attack;
         playerHP -= monsterAttack;
 
-        cout << "Voce acertou "<<attack<<" de dano.\n";
-        cout << "O mostro te causou "<<monsterAttack<< "de dano. \n";
+        cout << "Voce acertou "<<attack<<" de dano ao monstro.\n";
+        cout << "O monstro te causou "<<monsterAttack<< " de dano. \n";
     }
 
     if(playerHP > 0){
-        cout << "voce Venceu!\n";
+        cout << "Voce Venceu!\n";
         return 1;
     }else{
         cout << "Voce foi derrotado...\n";
@@ -42,6 +42,24 @@ int fightMonster(){
 }
 
 int main(){
+    srand(time(0));
+    drawIntro();
 
-    return 0;
+    string choice;
+
+    cout << "Voce esta em uma caverna escura. Ir para esquerda ou direita? (esquerda/direita): ";
+    cin>>choice;
+
+    if(choice =="esquerda"){
+        cout << "Voce encontrou uma espada magica.\n";
+        if(fightMonster()){
+            cout << "Com a espada magica, Voce derrotou o mostro e saiu da caverna!\n";
+        }
+        
+    }else{
+        cout <<"Voce caiu numa armadilha.\n";
+        cout << "FIM do jogo! volte sempre.\n";
+    }
+        
+        return 0;
 }
